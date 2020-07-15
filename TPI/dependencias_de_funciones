@@ -1,0 +1,81 @@
+// funciones principales, ejercicios //
+
+esSenial{esValida}
+
+seEnojo{duraMasDe, superUmbral}
+
+esReunionValida{reunionValida}
+
+acelerar{acelerarSenal}
+
+ralentizar{ralentizarSenal}
+
+tonosDeVozElevados{tono}
+
+ordenar{tono}
+
+silencios{calcularSilencios}
+
+hablantesSuperpuestos{seRespetan}
+
+reconstruir{esPasajePorCero, promediarSenalEn}
+
+filtradoMediana{subsenal, mediana}
+
+// funiones auxiliares //
+
+esValida{frecValida, profValida, enRango, duraMasDe}
+
+frecValida{}
+
+profValida{}
+
+enRango{}
+
+duraMasDe{}
+
+superaUmbral{tono}
+
+tono{absoluto}
+
+absoluto{}
+
+reunionValida{senalesValidas, esMatriz, hablantesDeReunionValidos}
+
+senalesValidas{esValida}
+
+esMatriz{}
+
+hablantesDeReunionValidos{}
+
+acelerarSenal{}
+
+ralentizarSenal{}
+
+calcularSilencios{absoluto}
+
+seRespetan{haySilencioQueLoContiene}
+
+haySilencioQuLoContiene{calcularSilencios, noPerteneceANinguno}
+
+noPerteneceANinguno{}
+
+esPasajaPorCero{signo}
+
+signo{}
+
+promediarSenalEn{masCercanoAnteriorNoNulo, masCercanoPosteriorNoNulo,
+	distancia}
+
+masCercanoAnteriorNoNulo{}
+
+masCercanoPosteriorNoNulo{}
+
+distancia{absoluto}
+
+subsenal{}
+
+mediana{ordenarSenal}
+
+ordenarSenal{}
+
