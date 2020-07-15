@@ -19,6 +19,24 @@ TEST(ralentizar, unHablanteSenialAscendente) {
     EXPECT_EQ(meet_res, meet_out);
 }
 
+TEST(ralentizar, hablanteAscendenteConAlgunosValoresNegativos) {
+    int p = 16;
+    int f = 10;
+
+    senial sig = {-1, -2, -3, -4, 5, 6, 7, 8, 9, 10};
+
+    reunion reunionIO = { make_pair(sig, 0)  };
+
+    senial sig_res = {-1, -1, -2, -2, -3, -3, -4, 0, 5, 5,
+                     6, 6, 7, 7, 8, 8, 9, 9, 10};
+
+    reunion r_esperada = { make_pair(sig_res, 0) };
+
+    ralentizar(reunionIO,p,f);
+
+    EXPECT_EQ(r_esperada, reunionIO);
+}
+
 TEST(ralentizar, unaSegnalDeLogitudImpar) {
 	// Caso 1, provisto por la materia, ralentizar una s'ola segnal
 	// de longitiud impar. Aprovechamos los casos del ejercicio
@@ -28,13 +46,13 @@ TEST(ralentizar, unaSegnalDeLogitudImpar) {
 	senial sig = {9, 43, 54, 103, 44, 59, -10, -44, -55, -104, -45, -60,
 		9, 43, 54, 103, 44, 59, -10, -44, -55, -104, -45, -60, 9};
 	reunion reunionIO = {make_pair(sig,0)};
-	senial sig_res = {9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 23,
+	senial sig_res = {9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 24,
 		-10, -27, -44, -49, -55, -79, -104, -74, -45, -52, -60, -25,
-		9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 23, -10, -27,
+		9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 24, -10, -27,
 		-44, -49, -55, -79, -104, -74, -45, -52, -60, -25, 9};
-	reunion res = {make_pair(sig_res,0)};
+	reunion r_esperada = {make_pair(sig_res,0)};
 	ralentizar(reunionIO, p, f);
-	EXPECT_EQ(res, reunionIO);
+	EXPECT_EQ(r_esperada, reunionIO);
 }
 
 TEST(ralentizar, ralentizarVariasSegnales) {
@@ -47,20 +65,20 @@ TEST(ralentizar, ralentizarVariasSegnales) {
 	senial sig1 = {1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1};
 	senial sig2 = {0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0};
 
-	senial sig_res = {9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 23,
+	senial sig_esperada = {9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 24,
 		-10, -27, -44, -49, -55, -79, -104, -74, -45, -52, -60, -25,
-		9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 23, -10, -27,
+		9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 24, -10, -27,
 		-44, -49, -55, -79, -104, -74, -45, -52, -60, -25, 9};
-	senial sig1_res = {1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,
-		0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1};
-	senial sig2_res = {0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,
-		0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0};
+	senial sig1_esperada = {1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,
+		0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1};
+	senial sig2_esperada = {0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,
+		0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0};
 	reunion reunionIO = {make_pair(sig,0), make_pair(sig1,1),
 		make_pair(sig2,2)};
-	reunion res = {make_pair(sig_res,0), make_pair(sig1_res,1),
-		make_pair(sig2_res,2)};
+	reunion r_esperada = {make_pair(sig_esperada,0),
+		make_pair(sig1_esperada,1), make_pair(sig2_esperada,2)};
 	ralentizar(reunionIO, p, f);
-	EXPECT_EQ(res, reunionIO);
+	EXPECT_EQ(r_esperada, reunionIO);
 }
 
 TEST(ralentizar, segnalDeLongitudPar) {
@@ -70,9 +88,9 @@ TEST(ralentizar, segnalDeLongitudPar) {
 	senial sig = {9, 43, 54, 103, 44, 59, -10, -44, -55, -104, -45, -60,
 		9, 43, 54, 103, 44, 59, -10, -44, -55, -104, -45, -60, 9,
 		2, 7, 3, -10, 2};
-	senial sig_res = {9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 23,
+	senial sig_res = {9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 24,
 		-10, -27, -44, -49, -55, -79, -104, -74, -45, -52, -60, -25,
-		9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 23, -10, -27,
+		9, 26, 43, 48, 54, 78, 103, 73, 44, 51, 59, 24, -10, -27,
 		-44, -49, -55, -79, -104, -74, -45, -52, -60, -25, 9, 5, 2,
 		4, 7, 5, 3, -3, -10, -4, 2};
 	reunion reunionIO = {make_pair(sig,0)};
@@ -112,9 +130,9 @@ TEST(ralentizar, segnalQueAlterna) {
 	// Caso 5, segnal que alterna entre valores positivos y negativos
 	int p = 16;
 	int f =10;
-	senial sig = {-11,11,-11,11,-11,11,-11,11,-11,11,
+	senial sig = {-11,12,-11,11,-12,11,-11,11,-11,11,
 		-11,11,-11,11,-11,11,-11,11};
-	senial sig_res = {-11,0,11,0,-11,0,11,0,-11,0,11,0,-11,0,11,
+	senial sig_res = {-11,0,12,0,-11,0,11,0,-12,0,11,0,-11,0,11,
 		0,-11,0,11,0,-11,0,11,0,-11,0,11,0,-11,0,11,0,-11,0,11}
 	reunion reunionIO = {make_pair(sig,0)};
 	reunion res = {make_pair(sig_res,0)};

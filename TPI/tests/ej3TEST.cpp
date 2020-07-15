@@ -10,11 +10,10 @@ TEST(esReunionValida, reunionNoCuadra) {
 	senial sig2 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
 	senial sig3 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19};
 
-	reunion reunion1 = {make_pair(sig1,0), make_pair(sig2,1),
-		make_pair(sig3,2)};
+	reunion r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,2)};
 	int p = 8;
 	int f = 10;
-	EXPECT_FALSE(esReunionValida(reunion1, p, f));
+	EXPECT_FALSE(esReunionValida(r, p, f));
 }
 
 TEST(esReunionValida, segnalFueraDeRango) {
@@ -27,11 +26,10 @@ TEST(esReunionValida, segnalFueraDeRango) {
 		sig2.push_back(0);
 		sig3.push_back(0);
 	}
-	reunion reunion1 = {make_pair(sig1,0), make_pair(sig2,1),
-		make_pair(sig3,2)};
+	reunion r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,2)};
 	int p = 8;
 	int f = 10;
-	EXPECT_FALSE(esReunionValida(reunion1, p, f));
+	EXPECT_FALSE(esReunionValida(r, p, f));
 }
 
 TEST(esReunionValida, dosSegnalesConMismoId) {
@@ -44,11 +42,11 @@ TEST(esReunionValida, dosSegnalesConMismoId) {
 		sig2.push_back(0);
 		sig3.push_back(0);
 	}
-	reunion reunion1 = {make_pair(sig1,0), make_pair(sig2,1),
+	reunion r = {make_pair(sig1,0), make_pair(sig2,1),
 		make_pair(sig3,0)};
 	int p = 8;
 	int f = 10;
-	EXPECT_FALSE(esReunionValida(reunion1, p, f));
+	EXPECT_FALSE(esReunionValida(r, p, f));
 }
 
 TEST(esReunionValida, segnalConIdInv'alido) {
@@ -61,10 +59,10 @@ TEST(esReunionValida, segnalConIdInv'alido) {
 		sig2.push_back(0);
 		sig3.push_back(0);
 	}
-	reunion reunion1 = {make_pair(sig1,0), make_pair(sig2,3),
+	reunion r = {make_pair(sig1,0), make_pair(sig2,3),
 		make_pair(sig3,2)};
 	int p = 8;
 	int f = 10;
-	EXPECT_FALSE(esReunionValida(reunion1, p, f));
+	EXPECT_FALSE(esReunionValida(r, p, f));
 }
 

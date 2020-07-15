@@ -2,9 +2,9 @@
 #include "../ejercicios.h"
 
 TEST(hablantesSuperpuestos, tresSuperpuestos) {
-    int prof = 16;
-    int freq = 10;
-    int umbral = 12;
+    int p = 16;
+    int f = 10;
+    int u = 12;
 
     senial s_a = {10, 51, 82, 97, 39, 2, 1, 0, 21, 15, 7};
     senial s_b = {2, 3, 2, -100, -32, -55, -4, -6, -100, -75, 20 };
@@ -15,7 +15,7 @@ TEST(hablantesSuperpuestos, tresSuperpuestos) {
 
     reunion r = {h_a, h_b, h_c};
 
-    EXPECT_TRUE(hablantesSuperpuestos(r, prof, freq, umbral));
+    EXPECT_TRUE(hablantesSuperpuestos(r, p, f, u));
 }
 
 TEST(hablantesSuperpuestos, tresHablantesSeSuperponen) {
@@ -43,7 +43,7 @@ TEST(hablantesSuperpuestos, unUnicHablante) {
 }
 
 TEST(hablantesSuperpuestos, tresHablantesSeRespetan) {
-	// Caso 3, tres hablantes que se respetan
+	// Caso 3, tres hablantes que se alternan
 	int p = 16;
 	int f = 10;
 	int u = 12;

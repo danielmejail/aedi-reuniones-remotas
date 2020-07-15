@@ -2,23 +2,18 @@
 #include "../ejercicios.h"
 
 TEST(tonosDeVozElevados, hayUnElevado){
-    int prof = 8;
-    int freq = 10;
-    hablante a = 0;
-    hablante b = 1;
-
-    senial fstSig = { -9,   43,   -54,  103,   -44,   59,  -10,  44,  -55,   104,
-                      -45,  60,   -9,   43,   -54,  103,   -44,   59,  -10,  44};
-
-    senial rdSig = { 17, -128, 127 , -18,  15, -16,  17, -20,  19, -18,
-                     1, -1,  2,  1, -2,  3,  0, -1,  3,  0,  0,  1,  1,
-                     -1,  2,  1, -2, 3,  0, -1,  3,  0,  0,  1,  1};
-
-    reunion meet6 = {make_pair(rdSig, a), make_pair(fstSig, b)};
-
-    vector<hablante> expectedMeet = {b};
-
-    EXPECT_EQ(tonosDeVozElevados(meet6, prof, freq), expectedMeet);
+	int p = 8;
+	int f = 10;
+	hablante a = 0;
+	hablante b = 1;
+	senial sigB = {-9, 43, -54, 103, -44, 59, -10, 44, -55, 104, -45,
+		60, -9, 43, -54, 103, -44, 59, -10, 44};
+	senial sigA = {17, -128, 127, -18, 15, -16, 17, -20, 19, -18, 1, -1,
+		2, 1, -2, 3, 0, -1, 3, 0, 0, 1, 1, -1, 2, 1, -2, 3, 0, -1, 3,
+		0, 0, 1, 1};
+	reunion r = {make_pair(sigA, a), make_pair(sigB, b)};
+	vector<hablante> esperado = {b};
+	EXPECT_EQ(tonosDeVozElevados(r, p, f), esperado);
 }
 
 TEST(tonosDeVozElevados, dosHablantesUnoAlto) {
@@ -91,7 +86,7 @@ TEST(tonosDeVozElevados, dosHablantesConTonoElevado) {
 }
 
 TEST(tonosDeVozElevados, ultimosDosConTonoElevado) {
-	// Caso 4, 'ultiimos dos hablantes con tono m'as elevado
+	// Caso 4, 'ultimos dos hablantes con tono m'as elevado
 	int p = 8;
 	int f = 10;
 	hablante a = 0;

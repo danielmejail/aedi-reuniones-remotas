@@ -13,9 +13,9 @@ TEST(acelerar, segnalLargoImpar) {
 	reunion reunionIO = {make_pair(sig,0)};
 	senial sig_res = {43, 103, 59, -44, -104, -60, 43, 103, 59, -44,
 		-104, -60};
-	reunion res = {make_pair(sig_res,0)};
+	reunion r_esperada = {make_pair(sig_res,0)};
 	acelerar(reunionIO, p , f);
-	EXPECT_EQ(res, reunionIO);
+	EXPECT_EQ(r_esperada, reunionIO);
 }
 
 TEST(acelerar, acelerarVariasSegnales) {
@@ -30,14 +30,14 @@ TEST(acelerar, acelerarVariasSegnales) {
 	reunion reunionIO = {make_pair(sig,0), make_pair(sig1,1),
 		make_pair(sig2,2)};
 	
-	senial sig_res = {43, 103, 59, -44, -104, -60, 43, 103, 59, -44,
+	senial sig_esperada = {43, 103, 59, -44, -104, -60, 43, 103, 59, -44,
 		-104, -60};
-	senial sig1_res = {0,0,0,0,0,0,0,0,0,0,0,0};
-	senial sig2_res = {1,1,1,1,1,1,1,1,1,1,1,1};
-	reunion res = {make_pair(sig_res,0), make_pair(sig1_res,1),
-		make_pair(sig2_res,2)};
+	senial sig1_esperada = {0,0,0,0,0,0,0,0,0,0,0,0};
+	senial sig2_esperada = {1,1,1,1,1,1,1,1,1,1,1,1};
+	reunion r_esperada = {make_pair(sig_esperada,0),
+		make_pair(sig1_esperada,1), make_pair(sig2_esperada,2)};
 	acelerar(reunionIO, p, f);
-	EXPEC_EQ(res, reunionIO);
+	EXPEC_EQ(r_esperada, reunionIO);
 }
 
 TEST(acelerar, segnalesDeLongitudPar) {
@@ -52,15 +52,16 @@ TEST(acelerar, segnalesDeLongitudPar) {
 	senial sig2 = {1,0,20,1,0,20,1,0,20,1,0,20,1,0,20,
 		1,0,20,1,0,20,1,0,20,1,0,20,1,0,20};
 
-	senial sig_res = {43, 103, 59, -44, -104, -60, 43, 103, 59, -44, -104,
-		-60,2,3,2};
-	senial sig1_res = {1,0,-1,1,0,-1,1,0,-1,1,0,-1,1,0,-1};
-	senial sig2_res = {0,1,20,0,1,20,0,1,20,0,1,20,0,1,20};
+	senial sig_esperada = {43, 103, 59, -44, -104, -60, 43, 103, 59, -44,
+		-104, -60, 2, 3, 2};
+	senial sig1_esperada = {1,0,-1,1,0,-1,1,0,-1,1,0,-1,1,0,-1};
+	senial sig2_esperada = {0,1,20,0,1,20,0,1,20,0,1,20,0,1,20};
 
 	reunion reunionIO = {make_pair(sig,0), make_pair(sig1,1),
 		make_pair(sig2,2)};
-	reunion res = {make_pair(sig_res,0), make_pair(sig1_res,1),
-		make_pair(sig2_res,2)};
+	reunion r_esperada = {make_pair(sig_esperada,0),
+		make_pair(sig1_esperada,1), make_pair(sig2_esperada,2)};
 	acelerar(reunionIO, p, f);
-	EXPECT_EQ(res, reunionIO);
+	EXPECT_EQ(r_esperada, reunionIO);
 }
+

@@ -592,7 +592,7 @@ void iniciarTestsEjercicio06(void) {
 	esperado = {a,b};
 	test_ejercicio06.push_back(TestEjercicio06(nom, r, p, f, esperado));
 
-	// Caso 4, 'ultiimos dos hablantes con tono m'as elevado
+	// Caso 4, 'ultimos dos hablantes con tono m'as elevado
 	nom = "tonosDeVozElevados/ultimosDosConTonoElevado";
 	p = 8;
 	f = 10;
