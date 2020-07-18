@@ -198,9 +198,20 @@ void iniciarTestsEjercicio03(void) {
 	reunion r;
 	int p;
 	int f;
-	bool val;
+	bool esperado;
 
 	senial sig1, sig2, sig3;
+
+	// Caso 0, reuni'on v'alida
+	nom = "esReunionValida/reunionCuadra";
+	sig1 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+	sig2 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+	sig3 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+	r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,2)};
+	p = 8;
+	f = 10;
+	esperado = true;
+	test_ejercicio03.push_back(TestEjercicio03(nom, r, p, f, esperado));
 
 	// Caso 1, provisto por la materia. La reuni'on no es v'alida
 	// porque una de las segnales es m'as corta. Adem'as, dependiendo
@@ -213,8 +224,8 @@ void iniciarTestsEjercicio03(void) {
 	r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,2)};
 	p = 8;
 	f = 10;
-	val = false;
-	test_ejercicio03.push_back(TestEjercicio03(nom, r, p, f, val));
+	esperado = false;
+	test_ejercicio03.push_back(TestEjercicio03(nom, r, p, f, esperado));
 
 	// Caso 2, una segnal (justo) fuera de rango
 	nom = "esReunionValida/segnalFueraDeRango";
@@ -229,8 +240,8 @@ void iniciarTestsEjercicio03(void) {
 	r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,2)};
 	p = 8;
 	f = 10;
-	val = false;
-	test_ejercicio03.push_back(TestEjercicio03(nom, r, p, f, val));
+	esperado = false;
+	test_ejercicio03.push_back(TestEjercicio03(nom, r, p, f, esperado));
 
 	// Caso 3, dos segnales comparten id
 	nom = "esReunionValida/dosSegnalesConMismoId";
@@ -245,8 +256,8 @@ void iniciarTestsEjercicio03(void) {
 	r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,0)};
 	p = 8;
 	f = 10;
-	val = false;
-	test_ejercicio03.push_back(TestEjercicio03(nom, r, p, f, val));
+	esperado = false;
+	test_ejercicio03.push_back(TestEjercicio03(nom, r, p, f, esperado));
 
 	int cant_de_tests = test_ejercicio03.size();
 	int cant_de_tests_que_pasaron = 0;

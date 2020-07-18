@@ -1,6 +1,17 @@
 #include "gtest/gtest.h"
 #include "../ejercicios.h"
 
+TEST(esReunionValida, reunionCuadra) {
+	// Caso 0, reuni'on v'alida
+	senial sig1 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+	senial sig2 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+	senial sig3 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+	reunion r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,2)};
+	int p = 8;
+	int f = 10;
+	EXPECT_TRUE(esReunionValida(r, p, f));
+
+
 TEST(esReunionValida, reunionNoCuadra) {
 	// Caso 1, provisto por la materia. La reuni'on no es v'alida
 	// porque una de las segnales es m'as corta. Adem'as, dependiendo
