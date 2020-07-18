@@ -54,7 +54,6 @@ TEST(seEnojo, estallaAlFinal) {
 
 TEST(seEnojo, seEnojaDosSegundos) {
 	// Caso 4, justo dos segundos de enojo
-	nom = "seEnojo/seEnojaDosSegundos";
 	senial s = {};
 	for(int i=0;i<20; i++){
 		s.push_back(100);
