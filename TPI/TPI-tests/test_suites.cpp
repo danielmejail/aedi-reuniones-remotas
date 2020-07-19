@@ -1232,6 +1232,21 @@ void iniciarTestsEjercicio11(void) {
 		-35, -35, -35, 77, 13, -46};
 	test_ejercicio11.push_back(TestEjercicio11(nom, s, p, f, R, esperado));
 
+	// Caso 7, r=4 con ruido
+	nom = "filtradoMediana/segnalDesordenadaR4ConRuido";
+	p = 16;
+	f = 10;
+	R = 4;
+	s = {154, -230, -165, 190,
+		-42, -20, 10, 67, 89, -133, -14, -23, 11, 128, 28,
+		65, 31, 74, 19, -158, -172, -98, -102, 34, 71,
+		-135, 177, 113, -146};
+	esperado = {154, -230, -165, 190,
+		10, -20, -14, -14, -14, 10, 11, 28, 28, 28 , 28,
+		28, 28, 28, 19, 19, 19, -98, -98, -98, -98,
+		-135, 177, 113, -146};
+	test_ejercicio11.push_back(TestEjercicio11(nom, s, p, f, R, esperado));
+
 	int cant_de_tests = test_ejercicio11.size();
 	int cant_de_tests_que_pasaron = 0;
 	for(int i=0; i<cant_de_tests; i++){
