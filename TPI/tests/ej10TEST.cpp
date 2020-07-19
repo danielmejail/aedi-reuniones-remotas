@@ -73,7 +73,7 @@ TEST(reconstruir, pasajePorCeroPorIntervaloLargoQueNoEsPasaje) {
 	int p = 8;
 	int f = 10;
 	senial s = {50, 60, 60, 28, 31, 14, 0, 0, 0, -78, -46, -11, 23, 72, 96};
-	seinal sRec = {50, 60, 60, 28, 31, 14, -32, -32, -32, -78, -46,
+	senial sRec = {50, 60, 60, 28, 31, 14, -32, -32, -32, -78, -46,
 		-11, 23, 72, 96};
 	senial reconstruida = reconstruir(s, p, f);
 	EXPECT_EQ(sRec, reconstruida);

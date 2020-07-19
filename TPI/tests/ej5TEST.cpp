@@ -133,10 +133,10 @@ TEST(ralentizar, segnalQueAlterna) {
 	senial sig = {-11,12,-11,11,-12,11,-11,11,-11,11,
 		-11,11,-11,11,-11,11,-11,11};
 	senial sig_res = {-11,0,12,0,-11,0,11,0,-12,0,11,0,-11,0,11,
-		0,-11,0,11,0,-11,0,11,0,-11,0,11,0,-11,0,11,0,-11,0,11}
-	reunion reunionIO = {make_pair(sig,0)};
+		0,-11,0,11,0,-11,0,11,0,-11,0,11,0,-11,0,11,0,-11,0,11};
+	reunion reunion5 = {make_pair(sig,0)};
 	reunion res = {make_pair(sig_res,0)};
-	ralentizar(reunionIO, p, f);
-	EXPECT_EQ(res, reunionIO);
+	ralentizar(reunion5, p, f);
+	EXPECT_EQ(res, reunion5);
 }
 

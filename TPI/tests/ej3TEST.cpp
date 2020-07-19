@@ -2,15 +2,15 @@
 #include "../ejercicios.h"
 
 TEST(esReunionValida, reunionCuadra) {
-	// Caso 0, reuni'on v'alida
-	senial sig1 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
-	senial sig2 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
-	senial sig3 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
-	reunion r = {make_pair(sig1,0), make_pair(sig2,1), make_pair(sig3,2)};
-	int p = 8;
-	int f = 10;
-	EXPECT_TRUE(esReunionValida(r, p, f));
-
+    // Caso 0, reuni'on v'alida
+    senial sig1 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+    senial sig2 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+    senial sig3 = {17, -128, 127, 18, 15, -16, 0, 17, -20, 19, -18};
+    reunion r = {make_pair(sig1, 0), make_pair(sig2, 1), make_pair(sig3, 2)};
+    int p = 8;
+    int f = 10;
+    EXPECT_TRUE(esReunionValida(r, p, f));
+}
 
 TEST(esReunionValida, reunionNoCuadra) {
 	// Caso 1, provisto por la materia. La reuni'on no es v'alida
@@ -60,7 +60,7 @@ TEST(esReunionValida, dosSegnalesConMismoId) {
 	EXPECT_FALSE(esReunionValida(r, p, f));
 }
 
-TEST(esReunionValida, segnalConIdInv'alido) {
+TEST(esReunionValida, segnalConIdInvalido) {
 	// Caso 4, una segnal con id inv'alido
 	senial sig1 = {17, -120, 120, 18, 15, -16, 0, 17, -20, 19, -18};
 	senial sig2 = {17, -120, 120, 18, 15, -16, 0, 17, -20, 19, -18};
@@ -71,9 +71,15 @@ TEST(esReunionValida, segnalConIdInv'alido) {
 		sig3.push_back(0);
 	}
 	reunion r = {make_pair(sig1,0), make_pair(sig2,3),
-		make_pair(sig3,2)};
+              make_pair(sig3,2)};
 	int p = 8;
 	int f = 10;
 	EXPECT_FALSE(esReunionValida(r, p, f));
 }
 
+TEST(esReunionValida, segnalvacia){
+    reunion r = {};
+    int p = 8;
+    int f = 10;
+    EXPECT_FALSE(esReunionValida(r,p,f));
+}

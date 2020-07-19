@@ -37,7 +37,7 @@ TEST(acelerar, acelerarVariasSegnales) {
 	reunion r_esperada = {make_pair(sig_esperada,0),
 		make_pair(sig1_esperada,1), make_pair(sig2_esperada,2)};
 	acelerar(reunionIO, p, f);
-	EXPEC_EQ(r_esperada, reunionIO);
+	EXPECT_EQ(r_esperada, reunionIO);
 }
 
 TEST(acelerar, segnalesDeLongitudPar) {
