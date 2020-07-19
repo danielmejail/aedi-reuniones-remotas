@@ -1218,6 +1218,20 @@ void iniciarTestsEjercicio11(void) {
 		-1, -1, -1, 1, 1, 1, -1, -1, -1, 1, 1};
 	test_ejercicio11.push_back(TestEjercicio11(nom, s, p, f, R, esperado));
 
+	// Caso 6, r=4
+	nom = "filtradoMediana/segnalDesordenadaR4";
+	p = 16;
+	f = 10;
+	R = 4;
+
+	s = {54, 23, -65, 90, -42, -20, 10, 67, 89, -33, -14, -23, 11,
+		28, 28, 65, 31, 74, 19, -58, -72, -98, -102, 34, 71, -35, 77,
+		13, -46};
+	esperado = {54, 23, -65, 90, 23, 10, -14, -14, -14, 10,
+		11, 28, 28, 28, 28, 28, 28, 28, 19, 19, 19, -35, -35,
+		-35, -35, -35, 77, 13, -46};
+	test_ejercicio11.push_back(TestEjercicio11(nom, s, p, f, R, esperado));
+
 	int cant_de_tests = test_ejercicio11.size();
 	int cant_de_tests_que_pasaron = 0;
 	for(int i=0; i<cant_de_tests; i++){
