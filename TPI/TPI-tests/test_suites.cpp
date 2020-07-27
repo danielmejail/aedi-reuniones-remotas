@@ -1247,6 +1247,20 @@ void iniciarTestsEjercicio11(void) {
 		-135, 177, 113, -146};
 	test_ejercicio11.push_back(TestEjercicio11(nom, s, p, f, R, esperado));
 
+	p = 16;
+	f = 10;
+	R = 4;
+	s = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+	esperado = {1, 3, -3, 4, 1, 0, -2, -8, 9, -15};
+	test_ejercicio11.push_back(TestEjercicio11(nom, s, p, f, R, esperado));
+
+	p = 8;
+	f = 10;
+	R = 4;
+	s = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+	esperado = {1, 3, -3, 4, 1, 0, -2, -8, 9, -15};
+	test_ejercicio11.push_back(TestEjercicio11(nom, s, p, f, R, esperado));
+
 	int cant_de_tests = test_ejercicio11.size();
 	int cant_de_tests_que_pasaron = 0;
 	for(int i=0; i<cant_de_tests; i++){
