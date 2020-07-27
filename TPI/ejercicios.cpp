@@ -190,6 +190,7 @@ senial reconstruir(senial const& s, int prof, int freq) {
 	return senalReconstruida;
 }
 
+/*
 void filtradoMediana(senial& s, int R, int prof, int freq){
 	// Asume que s es una segnal v'alida. R = 2 o 4. El par'ametro
 	// s pasado por referencia es modificado de manera que la nueva
@@ -224,4 +225,22 @@ void filtradoMediana(senial& s, int R, int prof, int freq){
 	}
 	// fin
 }
+*/
+
+void filtradoMediana(senial& s, int R, int prof, int freq) {
+	int m;
+	vector<int> w = {};
+	int largo = s.size();
+	w = subsenal(s,0,2*R+1);
+	for(int i=R;i<largo-R-1; i++){
+		m = mediana(w);
+		s[i] = m;
+		transportar(w,s,i+R+1);
+	}
+	s[largo-R-1] = mediana(w);
+	for(int j=1; j<R+1; j++) {
+		s[largo-R-1+j] = w[R+j];
+	}
+}
+
 

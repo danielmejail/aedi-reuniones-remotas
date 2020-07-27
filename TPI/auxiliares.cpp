@@ -360,3 +360,11 @@ void ordenarSenal(senial& b){
 	}
 }
 
+void transportar(senial &w, const senial &s, int k) {
+	int largo = w.size(); //largo = 2*R+1
+	for(int j=0; j<largo-1; j++) {
+		w[j] = w[j+1];
+	}
+	w[largo-1] = s[k];
+}
+

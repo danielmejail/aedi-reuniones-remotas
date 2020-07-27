@@ -65,5 +65,6 @@ int masCercanoPosteriorNoNulo(senial s, int a);
 //E11
 int mediana(senial b);
 void ordenarSenal(senial& b);
+void transportar(senial &w, const senial &s, int k);
 
 #endif //REUNIONESREMOTAS_AUXILIARES_H

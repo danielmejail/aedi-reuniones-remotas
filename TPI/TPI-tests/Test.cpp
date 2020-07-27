@@ -375,8 +375,21 @@ TestEjercicio11::TestEjercicio11(string nom, senial s, int p, int f, int r,
 
 bool TestEjercicio11::correrTest(void){
 	senial sigIO = sig;
-	int largo = sig.size();
+	int largo = valorEsperado.size();
+	cout << "Esperado: " << "{";
+	for(int i=0; i<largo-1; i++){
+		cout << valorEsperado[i] << ", ";
+	}
+	cout << valorEsperado[largo-1] << "}" << endl;
+
+	int largo_res = sig.size();
 	filtradoMediana(sigIO, lateral, prof, freq);
+	cout << "Resultado: " << "{";
+	for(int i=0; i<largo_res-1; i++){
+		cout << sigIO[i] << ", ";
+	}
+	cout << sigIO[largo_res-1] << "}" << endl;
+
 	return (sigIO == valorEsperado);
 }
 
